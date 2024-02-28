@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 
 <!DOCTYPE html>
@@ -50,15 +51,20 @@
                                     </li>
 
                                     <li><hr class="dropdown-divider"></li>
-
+                                    <li class="nav-item">
+                                        <a class="dropdown-item " asp-area="Identity" asp-page="/Account/Register" >Create User</a>
+                                    </li>
                                 </ul>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="Customer" asp-controller="Cart" asp-action="Index">
-                                <i class="bi bi-cart"></i> &nbsp;
+                       
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                    @await Component.InvokeAsync("ShoppingCart")
                                 </a>
-                        </li>
+                            </li>
+                        
+
 
                     </ul>
                     <partial name="_LoginPartial"/>
