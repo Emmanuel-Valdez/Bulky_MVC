@@ -126,7 +126,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
                 //ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusPending;
                 //StripeConfiguration.ApiKey = "sk_test_51OhE4mL68oJnCknYtC1geMmm8JeCotyZTIRGWkc2wtp4NAUR82W4YybrylaC7CoO5mDqPGyEmNW8DBwvOe03FHue00fIYY9EVl";
 
-                var domain = "https://localhost:7206/";
+                var domain = Request.Scheme + "://" + Request.Host.Value + "/";
                 var options = new Stripe.Checkout.SessionCreateOptions
                 {
                     SuccessUrl = domain + $"customer/cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
