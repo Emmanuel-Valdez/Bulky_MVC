@@ -82,7 +82,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			return Json(new { data = objCompanyList });
 		}
 
- 
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
 			var companyToBeDeleted = _unitOfWork.Company.Get(u => u.Id == id);
